@@ -21,11 +21,11 @@ Average Pizzas Per Order= Total Orders/Total Pizzas Sold
 Note:- KPI ->Yeh ek measurable value hota hai jo kisi organization ya business ki performance ko track karta hai. KPIs help karte hain yeh samajhne mein ki koi business ya team apne objectives ko kitna effectively achieve kar raha hai.
 
 ## 2. CHARTS REQUIREMENT:
-i.Daily trend fro total orders->create a bar chart that displays the trend of total orders over a specific time period.This chart helps use to identify any patterns in order volumes on a daily basis.
+i.Daily trend fro total orders ( Number of orders per day ) ->create a bar chart that displays the trend of total orders over a specific time period.This chart helps use to identify any patterns in order volumes on a daily basis.
 
-ii.hourly trend of total orders->create a line chart that shows the hourly of total orders throughout the day.This chart will help us to identify peak hours of high order activity.
+ii.hourly trend of total orders (Number of orders per Hour)->create a line chart that shows the hourly of total orders throughout the day.This chart will help us to identify peak hours of high order activity.
 
-iii.percentage of sales by pizze category->create a pie chart that shows the distribution of sales across different pizza categories .This chart wil provide insights into the popularity of various pizza categories and their contribution to overall sales.
+iii.percentage of sales by pizza category->create a pie chart that shows the distribution of sales across different pizza categories .This chart wil provide insights into the popularity of various pizza categories and their contribution to overall sales.
 
 iv.pecentage of sales by pizza size->generate a pie chart that represents the percentage of sales atrributed to different pizza sizes.This chart will help us to understand customer preferences for pizza and their impact on sales.
 
@@ -59,4 +59,24 @@ iv.Total Orders:
 SELECT COUNT(DISTINCT order_id) AS Total_orders from pizza_sales 
 
 
-v.Average Pizzas Per Order: 
+v.Average Pizzas Per Order:
+SELECT SUM(quantity)/COUNT(DISTINCT order_id) as Average_pizza_per_order from pizza_sales
+
+=>If we get data ind decimal points:
+
+SELECT  CAST(SUM(quantity) AS DECIMAL(10,2)) / CAST(COUNT(DISTINCT order_id) AS DECIMAL(10,2))   as Average_pizza_per_order from pizza_sales
+
+=>CAST is used to convert into decimal.
+
+
+## CHARTS SQL QUERY
+
+i. Number of orders per day
+SELECT DATENAME(DW,order_date) as order_day ,COUNT(DISTINCT  order_id) as Total_orders
+from pizza_sales GROUP BY DATENAME(DW,order_date)
+
+ii.Number of orders per Hour
+SELECT DATEPART(HOUR,order_time) as hourly_trend ,COUNT(DISTINCT  order_id) as Total_orders
+from pizza_sales GROUP BY DATEPART(HOUR,order_time) ORDER BY DATEPART(HOUR,order_time) ASC
+
+iii.percentage of sales by pizza category (which pizza is sold maximum)
