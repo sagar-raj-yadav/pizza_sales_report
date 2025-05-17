@@ -27,12 +27,12 @@ ii.hourly trend of total orders (Number of orders per Hour)->create a line chart
 
 iii.percentage of sales by pizza category->create a pie chart that shows the distribution of sales across different pizza categories .This chart wil provide insights into the popularity of various pizza categories and their contribution to overall sales.
 
-iv.pecentage of sales by pizza size->generate a pie chart that represents the percentage of sales atrributed to different pizza sizes.This chart will help us to understand customer preferences for pizza and their impact on sales.
+iv.percentage of sales by pizza size->generate a pie chart that represents the percentage of sales atrributed to different pizza sizes.This chart will help us to understand customer preferences for pizza and their impact on sales.
 
 v.Total Pizzas Sold by Pizza Category:
 Create a funnel chart that presents the total number of pizzas sold for each pizza category. This chart will allow us to compare the sales performance of different pizza categories.
 
-Vi.Top 5 Best Sellers by Total Pizzas Sold:
+Vi.Top 5 Best pizza SellersTop 5 Best pizza Sellers by Total Pizzas Sold:
 Create a bar chart highlighting the top 5 best-selling pizzas based on the fotal number of pizzas sold. This chart will help us identify the most popular pizza options.
 
 7.Bottom 5 Worst Sellers by Total Pizzas Sold:
